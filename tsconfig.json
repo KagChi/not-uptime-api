@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "module": "CommonJS",
+        "resolveJsonModule": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "src/interfaces"
+        ],
+        "outDir": "./dist",
+        "baseUrl": "./src",
+    },
+    "include": ["src/**/*.ts",],
+    "exclude": ["node_modules/**"]
+  }
