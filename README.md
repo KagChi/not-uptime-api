@@ -1,11 +1,13 @@
 # not-uptime-api
+
+
 ## Usage (Submit Url)
 
 ```javascript
 const { uptimeClient } = require("noupi");
 const apiClient = new uptimeClient("yOurNicE Uptime Token")
-//using await
 
+//using await
 async function submitLink() {
  await apiClient.submit("testApp","yourlink.glitch.me")
   }
