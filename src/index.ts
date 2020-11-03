@@ -10,8 +10,8 @@ export class uptimeClient {
     public async submit(name: string, url: string): Promise<Submit> {
         if(!this.token) throw new Error('Authorization Bearer Required!');
         if(!name) throw new Error('Name Required!');
-        if(!url) throw new Error('Url Required!')
-        const allowedURI = /(glitch.me||repl.co||repl.run)/
+        if(!url) throw new Error('Url Required!');
+        const allowedURI = /(glitch.me|repl.co|repl.run)/i
         if(allowedURI.test(url)) {
             try {
         const post = await axios.post(this.baseURL+ "/submit", {
@@ -24,13 +24,16 @@ export class uptimeClient {
         })
         return {
            name: name,
-           url: url
+           url: url,
+           message: "Success"
         }
     } catch (error) {
         throw new Error(error.message)
     }
 } else {
-        throw new Error('Your URI is Invalid!')
+    throw new Error('Your URI is Invalid!')
     }
 } 
   }
+
+ 

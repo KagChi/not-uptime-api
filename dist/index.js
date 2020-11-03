@@ -11,11 +11,11 @@ class uptimeClient {
     async submit(name, url) {
         if (!this.token)
             throw new Error('Authorization Bearer Required!');
-        if (name)
+        if (!name)
             throw new Error('Name Required!');
-        if (url)
+        if (!url)
             throw new Error('Url Required!');
-        const allowedURI = /(glitch.me||repl.co||repl.run)/;
+        const allowedURI = /(glitch.me|repl.co|repl.run)/i;
         if (allowedURI.test(url)) {
             try {
                 const post = await axios_1.default.post(this.baseURL + "/submit", {
@@ -28,7 +28,8 @@ class uptimeClient {
                 });
                 return {
                     name: name,
-                    url: url
+                    url: url,
+                    message: "Success"
                 };
             }
             catch (error) {
