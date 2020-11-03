@@ -17,18 +17,23 @@ class uptimeClient {
             throw new Error('Url Required!');
         const allowedURI = /(glitch.me||repl.co||repl.run)/;
         if (allowedURI.test(url)) {
-            const post = await axios_1.default.post(this.baseURL + "/submit", {
-                name: name,
-                url: url
-            }, {
-                headers: {
-                    authorization: this.token
-                }
-            });
-            return {
-                name: name,
-                url: url
-            };
+            try {
+                const post = await axios_1.default.post(this.baseURL + "/submit", {
+                    name: name,
+                    url: url
+                }, {
+                    headers: {
+                        authorization: this.token
+                    }
+                });
+                return {
+                    name: name,
+                    url: url
+                };
+            }
+            catch (error) {
+                throw new Error(error.message);
+            }
         }
         else {
             throw new Error('Your URI is Invalid!');

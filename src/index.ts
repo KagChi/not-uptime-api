@@ -13,6 +13,7 @@ export class uptimeClient {
         if(url) throw new Error('Url Required!')
         const allowedURI = /(glitch.me||repl.co||repl.run)/
         if(allowedURI.test(url)) {
+            try {
         const post = await axios.post(this.baseURL+ "/submit", {
             name: name,
             url: url
@@ -25,7 +26,10 @@ export class uptimeClient {
            name: name,
            url: url
         }
-    } else {
+    } catch (error) {
+        throw new Error(error.message)
+    }
+} else {
         throw new Error('Your URI is Invalid!')
     }
 } 
