@@ -1,9 +1,9 @@
 import axios from 'axios';
 import type { Submit } from './Interfaces'
 export class uptimeClient {
-    token: string;
-    constructor(token: string) {
-        this.token = token;
+    public readonly token?: string;
+    public constructor(token: string) {
+        if (token) Object.defineProperty(this, "token", { value: token });
     }
     private readonly baseURL = "https://uptime.notadev.xyz/api/v1";
     public version : string = require('../package.json').version

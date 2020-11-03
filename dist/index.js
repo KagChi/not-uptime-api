@@ -6,7 +6,8 @@ class uptimeClient {
     constructor(token) {
         this.baseURL = "https://uptime.notadev.xyz/api/v1";
         this.version = require('../package.json').version;
-        this.token = token;
+        if (token)
+            Object.defineProperty(this, "token", { value: token });
     }
     async submit(name, url) {
         if (!this.token)
