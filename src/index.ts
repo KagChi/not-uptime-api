@@ -9,8 +9,8 @@ export class uptimeClient {
     public version : string = require('../package.json').version
     public async submit(name: string, url: string): Promise<Submit> {
         if(!this.token) throw new Error('Authorization Bearer Required!');
-        if(name) throw new Error('Name Required!');
-        if(url) throw new Error('Url Required!')
+        if(!name) throw new Error('Name Required!');
+        if(!url) throw new Error('Url Required!')
         const allowedURI = /(glitch.me||repl.co||repl.run)/
         if(allowedURI.test(url)) {
             try {
