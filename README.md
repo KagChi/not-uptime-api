@@ -16,5 +16,6 @@ submitLink()
 apiClient.submit("testApp", "yourlink.glitch.me").then(x => console.log(x))
 /*NOTE:
 Valid Url Ended with *.glitch.me*, *.repl.co*, *repl.run*
-*/```
+*/
+```
 
