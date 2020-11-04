@@ -16,7 +16,8 @@ submitLink()
 //using then
 apiClient.submit("testApp", "yourlink.glitch.me").then(x => console.log(x))
 /*NOTE:
-Valid Url Ended with .glitch.me, .repl.co, .repl.run
+Valid Url Ended with .glitch.me, .repl.co, .repl.run,
+Error Catching Doesnt Work For Now!
 */
 ```
 
